@@ -9,13 +9,7 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd ">
 
-
-    <!--扫描所有Service包下使用注解类型-->
-    <context:component-scan base-package="com.seckill.service"/>
-
-
-    <!--======================配置整合mybatis过程=================================-->
-
+    <!--====================== 配置整合mybatis过程 =================================-->
     <!--1.配置数据库相关参数 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -64,7 +58,9 @@
     </bean>
     <!--END-->
 
-    <!--=====================事务的配置=================================-->
+    <!--===================== 事务的配置 =================================-->
+    <!--扫描所有Service包下使用注解类型-->
+    <context:component-scan base-package="com.seckill.service"/>
 
     <!--配置事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -74,7 +70,35 @@
 
     <!--配置基于注解的声明式事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
     <!--END-->
+
+
+    <!-- =================== SpringMVC配置 ==================================== -->
+    <!--1、开启SpringMVC注解模式-->
+    <!--
+        简化配置：
+            (1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+            (2)提供一系列：数据绑定，数字和日期的format @NumberFormat,@DataTimeFormat
+                    xml,json的默认支持
+    -->
+    <mvc:annotation-driven/>
+
+    <!--2、静态资源默认Servelt配置-->
+    <!--
+        (1)加入对静态资源的处理:js,gif,png
+        (2)允许使用"/"做整体映射
+    -->
+    <mvc:default-servlet-handler/>
+
+    <!--3、配置jsp，显示ViewResolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--4、扫描web相关的bean-->
+    <context:component-scan base-package="com.seckill.web"/>
+
 
 </beans>

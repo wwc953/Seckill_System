@@ -40,7 +40,7 @@ public class SeckillServiceimpl implements SeckillService {
 
 
     public List<Seckill> getSeckillList() {
-        return secKillDao.queryAll(0, 4);
+        return secKillDao.queryAll(0, 5);
     }
 
     public Seckill getById(long seckillId) {
