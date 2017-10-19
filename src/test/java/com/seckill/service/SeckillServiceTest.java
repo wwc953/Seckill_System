@@ -53,7 +53,7 @@ public class SeckillServiceTest {
         /**
          *Exposer{
          * exposed=true,
-         * md5='a1ee393a82ff8e286ec34077a1858044',
+         * md5='26747727d1f29058a28eddfed059bea9',
          * seckillId=1000, now=0, start=0, end=0}
          *
          */
@@ -63,7 +63,7 @@ public class SeckillServiceTest {
     public void executeSeckill() throws Exception {
         long id = 1000;
         long phone = 1706234533L;
-        String md5 = "a1ee393a82ff8e286ec34077a1858044";
+        String md5 = "26747727d1f29058a28eddfed059bea9";
 
         try {
             SeckillExecution execution = seckillService.executeSeckill(id, phone, md5);
