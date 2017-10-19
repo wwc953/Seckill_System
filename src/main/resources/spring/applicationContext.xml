@@ -9,18 +9,24 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd ">
 
-    <!--配置整合mybatis过程
-        1.配置数据库相关参数-->
+
+    <!--扫描所有Service包下使用注解类型-->
+    <context:component-scan base-package="com.seckill.service"/>
+
+
+    <!--======================配置整合mybatis过程=================================-->
+
+    <!--1.配置数据库相关参数 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--2.数据库连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--配置连接池属性-->
-        <property name="driverClass" value="${jdbc.driver}" />
+        <property name="driverClass" value="${jdbc.driver}"/>
         <!-- 基本属性 url、user、password -->
-        <property name="jdbcUrl" value="${jdbc.url}" />
-        <property name="user" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
         <!--c3p0私有属性-->
         <property name="maxPoolSize" value="30"/>
@@ -56,9 +62,19 @@
         <!-- 给出需要扫描的Dao接口-->
         <property name="basePackage" value="com.seckill.dao"/>
     </bean>
+    <!--END-->
 
+    <!--=====================事务的配置=================================-->
 
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据库连接池-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
+    <!--配置基于注解的声明式事务-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!--END-->
 
 </beans>

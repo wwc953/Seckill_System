@@ -13,9 +13,8 @@ import java.util.List;
 /**
  * Created by Roll on 2017/10/18.
  * 配置junit和spring整合，为了junit启动时，加载spring IOC容器
- *
+ * <p>
  * spring-test
- *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit spring配置文件的位置
@@ -29,8 +28,8 @@ public class SecKillDaoTest {
 
     @Test
     public void queryById() throws Exception {
-        long id=1000;
-        Seckill secKill= (Seckill) secKillDao.queryById(id);
+        long id = 1000;
+        Seckill secKill = (Seckill) secKillDao.queryById(id);
         System.out.println(secKill.getName());
         System.out.println(secKill);
 
@@ -58,8 +57,8 @@ public class SecKillDaoTest {
          *      使用MyBatis的@Param注解
          *
          */
-        List<Seckill> seckills = secKillDao.queryAll(0,10);
-        for (Seckill seckill:seckills) {
+        List<Seckill> seckills = secKillDao.queryAll(0, 10);
+        for (Seckill seckill : seckills) {
             System.out.println(seckill);
         }
 
@@ -80,7 +79,6 @@ public class SecKillDaoTest {
         System.out.println(updateCount);
 
     }
-
 
 
 }

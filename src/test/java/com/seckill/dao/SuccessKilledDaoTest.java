@@ -37,7 +37,7 @@ public class SuccessKilledDaoTest {
         long id = 1000;
         long phone = 1736234533;
         int insertCount = successKilledDao.insertSuccessKilled(id, phone);
-        System.out.println("insertCount = "+insertCount);
+        System.out.println("insertCount = " + insertCount);
     }
 
     @Test
