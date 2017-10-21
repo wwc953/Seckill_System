@@ -73,7 +73,6 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--END-->
 
-
     <!-- =================== SpringMVC配置 ==================================== -->
     <!--1、开启SpringMVC注解模式-->
     <!--
