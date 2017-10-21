@@ -6,33 +6,36 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/tag.jsp"%>
+<%@ include file="common/tag.jsp" %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>秒杀详情页</title>
-    <%@include file="common/head.jsp"%>
-</head>
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--Cookie操作插件-->
-<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-<!--倒计时插件-->
-<script src="https://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.js"></script>
-<!--交互逻辑-->
-<script src="/resources/script/seckill.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function (){
-        seckill.detail.init({
-            //EL表达式传入参数
-            seckillId: ${seckill.seckillId},
-            startTime: ${seckill.startTime.time},//毫秒
-            endTime: ${seckill.endTime.time}
+    <%@include file="common/head.jsp" %>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Cookie操作插件-->
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!--倒计时插件-->
+    <script src="https://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.js"></script>
+    <!--交互逻辑-->
+    <script src="/resources/script/seckill.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            seckill.detail.init({
+                //EL表达式传入参数
+                seckillId: ${seckill.seckillId},
+                startTime: ${seckill.startTime.time},//毫秒
+                endTime: ${seckill.endTime.time}
+            });
         });
-    });
-</script>
+    </script>
+
+</head>
 
 <body>
 <div class="container">

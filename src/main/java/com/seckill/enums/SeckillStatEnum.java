@@ -31,8 +31,13 @@ public enum SeckillStatEnum {
         return stateInfo;
     }
 
+    /**
+     * 根据id拿秒杀状态
+     *
+     * @param index
+     * @return
+     */
     public static SeckillStatEnum stateOf(int index) {
-
         for (SeckillStatEnum state : values()) {
             if (state.getState() == index)
                 return state;
