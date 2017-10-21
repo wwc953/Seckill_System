@@ -12,12 +12,10 @@
         VALUES (#{seckillId},#{userPhone},0)
     </insert>
 
-
     <select id="queryByIdWithSeckill" resultType="SuccessKilled">
         <!--根据id查询SuccessKilled，并携带秒杀产品对象-->
 
         <!--关键在于如何让Mybatis知道将结果映射到SuccessKilled同时映射对应的seckillInventory属性-->
-
         <!--Mybatis最核心：可以自由控制SQL-->
         SELECT
           sk.seckill_id,

@@ -38,7 +38,7 @@ public class SeckillController {
         return "list";
     }
 
-
+    //Restful风格设计URL
     @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)
     public String detail(@PathVariable("seckillId") Long seckillId, Model model) {
         if (seckillId == null) {

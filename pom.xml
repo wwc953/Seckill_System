@@ -9,7 +9,6 @@
     <name>roll Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-
     <dependencies>
 
         <dependency>
@@ -186,7 +185,6 @@
             <version>3.2</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <finalName>roll</finalName>
