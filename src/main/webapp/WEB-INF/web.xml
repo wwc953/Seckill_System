@@ -13,6 +13,8 @@
             配置SpringMVC 需要配置的文件
             Mybites -> spring -> springMVC
         -->
+
+        <!--指定Spring的配置的位置以及名称。容器放在ServletContext中项目启动一次即可-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring/applicationContext.xml</param-value>
